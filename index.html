@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Olympic Dashboard</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+    
+    
+</head>
+<body class = "entire-bg">
+    
+    <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Olympic Medal Distribution </a>
+	    </div>
+	</nav>
+    
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-xs-12">
+            <!--Lets have the Data Selector in here. -->
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-sm-12 col-md-4  text-center">
+                <strong>Lets compare Male vs Female competitors since the beginning</strong>
+            </div>
+            <div class = "col-sm-12 col-md-4">
+                <strong>Here we see the top five performing countries since the beginning</strong>
+            </div>
+            <div class = "col-sm-12 col-md-4">
+                <strong>A breakdown of their performance. Does one country take home more of one type of medal?</strong>
+                
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-sm-12 col-md-4" id = "gender_chart">
+                <!-- Male Vs Female Piechart will go here-->
+                <p class = "info">Men have won the vast amount of medals as although women could compete since 1900 it took until 2012 for every country to have female representives at the games!</p>
+            </div>
+            <div class = "col-sm-12 col-md-4" id = "top_performers">
+                <!--Top 5 countries barchart will go here-->
+                <p class = "info">Something About Top Performers</p>
+            </div>
+            <div class = "col-sm-12 col-md-4" id = "medal_chart">
+                <!--Gold/Silver/Bronze piechart will go here-->
+                <p class = "info"> Observations of medals.</p>
+                
+            </div>
+        </div>
+        
+        <div class = "row">
+            <div class = "col-sm-12 ">
+                <!--Scatter Plot of Medals won over time-->
+            </div>
+        </div>
+        
+        <div class = "row">
+            <div class = "col-sm-12">
+                <!--Chart to show if GDP per Capita affects amounts of medals-->
+            </div>
+        </div>
+        
+        <div class = "row">
+            <div class = "col-sm-12">
+                <!--Hopefully have a world map colour coded to show distribution of medals-->
+            </div>
+        </div>
+        
+        
+        
+        
+    </div>
+</body>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/graphs.js"></script>
+</html>
