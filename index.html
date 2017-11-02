@@ -19,21 +19,27 @@
     
     
 </head>
-<body class = "entire-bg">
+<body>
+     
     
     <nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Olympic Medal Distribution </a>
+	      <a class="navbar-brand" href="#" onclick="return false;">Olympic Dashboard</a>
 	    </div>
+	    
+	    
 	</nav>
+	
+	<section id = "entire_summer_bg">
     
     <div class = "container">
-        <div class = "row">
-            <div class = "col-xs-12">
-            <!--Lets have the Data Selector in here. -->
-            </div>
-        </div>
+        <div class="row">
+	        <div class="col-xs-12 col-sm-12">
+	          <h1 class="section-heading">Olympic Medal Distribution</h1>
+	          <div id="discipline-selector"></div>
+	        </div>
+	      </div>
         <div class = "row">
             <div class = "col-sm-12 col-md-4  text-center">
                 <strong>Lets compare Male vs Female competitors since the beginning</strong>
@@ -53,39 +59,40 @@
             </div>
             <div class = "col-sm-12 col-md-4" id = "top_performers">
                 <!--Top 5 countries barchart will go here-->
-                <p class = "info">Something About Top Performers</p>
+                <p class = "info">We can see the USA are dominant regardless of how we filter the data. While at a number two position for the moment the Soviet Union was dissolved in 1991 and will naturally fall off the podium, but how long will it take?</p>
             </div>
             <div class = "col-sm-12 col-md-4" id = "medal_chart">
                 <!--Gold/Silver/Bronze piechart will go here-->
-                <p class = "info"> Observations of medals.</p>
+                <p class = "info">The USA not only takes home the majority of medals but the medals which they take home are Gold almost half the time. They truly stand out as an overwhelmingly dominant country. Another interesting point is Italy is Top 5 for Gold and Silver, but when Bronze is included they drop off.</p>
                 
             </div>
         </div>
         
         <div class = "row">
-            <div class = "col-sm-12 ">
-                <!--Scatter Plot of Medals won over time-->
+            <div class = "col-sm-12">
+                <strong> Lets examine the Top 3 performers since the beginning to see if they've always been this dominant</strong>
+                <p class = "info">Here we will use a weighting proposed by Jeff Z. Klein in a New York Times article where Gold:Silver:Bronze is 4:2:1 as it seems the fairest compromise between the total-medals and golds-first methods.</p>
             </div>
         </div>
         
         <div class = "row">
-            <div class = "col-sm-12">
-                <!--Chart to show if GDP per Capita affects amounts of medals-->
+            <div class = "col-sm-12" id = "top-three-by-year-chart">
+                <!--Scatter Plot of Medals won over time for top five countries-->
             </div>
         </div>
         
-        <div class = "row">
-            <div class = "col-sm-12">
-                <!--Hopefully have a world map colour coded to show distribution of medals-->
-            </div>
-        </div>
         
         
         
         
     </div>
+    
+    </section>
+    
+    
 </body>
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="static/graphs.js"></script>
+    <script type="text/javascript" src="static/hide_it.js"></script>
 </html>

@@ -1,24 +1,55 @@
-/*.entire-bg{*/
-/*    background:url("../images/oly-rings.png");*/
-/*    background-size:cover;*/
-/*    background-position:center center;*/
-/*    background-repeat: no-repeat;*/
+.entire-bg{
+    background:url("../images/summerrings.jpg");
+    background-size:cover;
+    background-position:center center;
+    background-repeat: no-repeat;
     
-/*}*/
+}
+
+.entire_winter_bg{
+    background:url("../images/winterrings.jpg");
+    background-size:cover;
+    background-position:center center;
+    background-repeat: no-repeat;
+    
+}
 
 .navbar-default {
 	background-image: none;
-	background-color: gold;
+	background-color: silver;
 	color:silver;
 	margin-bottom: 0;
 	top:0;
 }
 
+.section-heading, #discipline-selector {
+	display: inline-block;	
+	float: none;
+	margin: 0;
+}
+
+.section-heading {
+	margin-bottom: 50px;
+}
+
+#discipline-selector {
+	margin-left: 15px;
+}
+
+strong{
+    color:white;
+}
 .info{
     font-family: sans-serif;
+    color:white;
     font-size: 10px;
     padding-top:0;
     margin-top:0;
 }
 
+#top_performers rect{
+    fill: rgba
+}
+
+   
 
