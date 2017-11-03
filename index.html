@@ -19,7 +19,7 @@
     
     
 </head>
-<body>
+<body id = "entire_bg">
      
     
     <nav class="navbar navbar-default">
@@ -31,53 +31,44 @@
 	    
 	</nav>
 	
-	<section id = "entire_summer_bg">
+	<div class = "selector">
+        <h3>Select Season</h3>
+        <div id="select-season"></div>
+    </div>
+	
+
     
     <div class = "container">
         <div class="row">
-	        <div class="col-xs-12 col-sm-12">
+	        <div class="col-xs-12 col-sm-12 text-center">
 	          <h1 class="section-heading">Olympic Medal Distribution</h1>
-	          <div id="discipline-selector"></div>
 	        </div>
 	      </div>
-        <div class = "row">
-            <div class = "col-sm-12 col-md-4  text-center">
-                <strong>Lets compare Male vs Female competitors since the beginning</strong>
-            </div>
-            <div class = "col-sm-12 col-md-4">
-                <strong>Here we see the top five performing countries since the beginning</strong>
-            </div>
-            <div class = "col-sm-12 col-md-4">
-                <strong>A breakdown of their performance. Does one country take home more of one type of medal?</strong>
-                
-            </div>
-        </div>
-        <div class = "row">
+        <div class = "row backing">
             <div class = "col-sm-12 col-md-4" id = "gender_chart">
                 <!-- Male Vs Female Piechart will go here-->
+                <strong>Lets compare Male vs Female competitors since the beginning</strong>
                 <p class = "info">Men have won the vast amount of medals as although women could compete since 1900 it took until 2012 for every country to have female representives at the games!</p>
             </div>
             <div class = "col-sm-12 col-md-4" id = "top_performers">
                 <!--Top 5 countries barchart will go here-->
+                <strong>Here we see the top five performing countries since the beginning</strong>
                 <p class = "info">We can see the USA are dominant regardless of how we filter the data. While at a number two position for the moment the Soviet Union was dissolved in 1991 and will naturally fall off the podium, but how long will it take?</p>
             </div>
             <div class = "col-sm-12 col-md-4" id = "medal_chart">
                 <!--Gold/Silver/Bronze piechart will go here-->
+                <strong>A breakdown of their performance. Does one country take home more of one type of medal?</strong>
                 <p class = "info">The USA not only takes home the majority of medals but the medals which they take home are Gold almost half the time. They truly stand out as an overwhelmingly dominant country. Another interesting point is Italy is Top 5 for Gold and Silver, but when Bronze is included they drop off.</p>
                 
             </div>
         </div>
         
-        <div class = "row">
-            <div class = "col-sm-12">
-                <strong> Lets examine the Top 3 performers since the beginning to see if they've always been this dominant</strong>
-                <p class = "info">Here we will use a weighting proposed by Jeff Z. Klein in a New York Times article where Gold:Silver:Bronze is 4:2:1 as it seems the fairest compromise between the total-medals and golds-first methods.</p>
-            </div>
-        </div>
         
-        <div class = "row">
+        
+        <div class = "row backing">
             <div class = "col-sm-12" id = "top-three-by-year-chart">
-                <!--Scatter Plot of Medals won over time for top five countries-->
+                 <strong> Lets examine the Top 3 performers since the beginning to see if they've always been this dominant</strong>
+                <p class = "info">Here we will use a weighting proposed by Jeff Z. Klein in a New York Times article where Gold:Silver:Bronze is 4:2:1 as it seems the fairest compromise between the total-medals and golds-first methods.</p>
             </div>
         </div>
         
@@ -87,7 +78,14 @@
         
     </div>
     
-    </section>
+     <footer class ="container-fluid">
+            <div class="row pull-right">
+                <a href= "https://www.kaggle.com/the-guardian/olympic-games/data">Data Found Here!  </a>
+                
+            </div>
+    </footer>
+    
+  
     
     
 </body>

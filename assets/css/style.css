@@ -1,4 +1,4 @@
-.entire-bg{
+#entire_bg{
     background:url("../images/summerrings.jpg");
     background-size:cover;
     background-position:center center;
@@ -6,13 +6,7 @@
     
 }
 
-.entire_winter_bg{
-    background:url("../images/winterrings.jpg");
-    background-size:cover;
-    background-position:center center;
-    background-repeat: no-repeat;
-    
-}
+
 
 .navbar-default {
 	background-image: none;
@@ -23,7 +17,8 @@
 }
 
 .section-heading, #discipline-selector {
-	display: inline-block;	
+	display: inline-block;
+	color:white;
 	float: none;
 	margin: 0;
 }
@@ -32,9 +27,19 @@
 	margin-bottom: 50px;
 }
 
+.backing{
+    background: rgba(102, 106, 107, 0.8);
+}
+
+.selector{
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
 #discipline-selector {
 	margin-left: 15px;
 }
+
 
 strong{
     color:white;
@@ -47,9 +52,19 @@ strong{
     margin-top:0;
 }
 
-#top_performers rect{
-    fill: rgba
+footer{
+    height: 50px;
+    width: 100%;
+    padding-top: 10px;
+    margin:0 0 0 10;
+    z-index: 100;
+    bottom:0;
 }
 
+
+footer a{
+    color: red;
+    margin-right: 15px;
+}
    
 

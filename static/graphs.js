@@ -19,12 +19,19 @@ function makeGraphs(error, winterData, summerData){
     
     var ndx = crossfilter(totalData);
     
-        eventData.forEach(function(d) {
+    var seasonDim = ndx.dimension(dc.pluck("Season"))
+        seasonGroup = seasonDim.group();
+
+        dc.selectMenu('#select-season')
+            .dimension(seasonDim)
+            .group(seasonGroup);
+    
+        totalData.forEach(function(d) {
             d.Year = +d.Year;
         }) 
         
         //adopt a 4:2:1 ratio of medals as proposed by Michael Klien in the NY Times
-        eventData.forEach(function(d){
+        totalData.forEach(function(d){
             if (d['Medal'] == 'Bronze') {
                 d.Score = 1;
             };
@@ -70,7 +77,7 @@ function show_top_countries(ndx){
         .range(["red", "blue", "orange", "green", "pink", "purple"])
     
     dc.rowChart("#top_performers")
-        .width(500)
+        .width(400)
         .height(300)
         .colors(countryColors)
         .dimension(country_dim)
@@ -86,6 +93,9 @@ function show_medal_ratio(ndx){
     var medalColors = d3.scale.ordinal()
         .domain(["Bronze", "Silver", "Gold"])
         .range(["#B04709", "#698192", "#FCCF2F"])
+    var percentageFormat = d3.format("%");
+    
+    
     
     
     dc.pieChart("#medal_chart")
@@ -122,6 +132,7 @@ function show_medals_over_time(ndx){
         var minYear = year_dim.bottom(1)[0].Year;
         var maxYear = year_dim.top(1)[0].Year;
         
+        
         function countryScoreByYear(country){
             return year_dim.group().reduceSum(function (d) {
                 if (d.Country === country) {
@@ -135,6 +146,8 @@ function show_medals_over_time(ndx){
         var USAScoreByYear = countryScoreByYear("USA");
         var USRScoreByYear = countryScoreByYear("URS");
         var GBRScoreByYear = countryScoreByYear("GBR");
+        
+        
     
         var compositeChart = dc.compositeChart('#top-three-by-year-chart');
         compositeChart
