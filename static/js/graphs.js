@@ -150,9 +150,9 @@ function show_medals_over_time(ndx){
             });
         }
         
-        // var USAScoreByYear = countryScoreByYear("USA");
-        // var USRScoreByYear = countryScoreByYear("URS");
-        // var GBRScoreByYear = countryScoreByYear("GBR");
+        var USAScoreByYear = countryScoreByYear("USA");
+        var USRScoreByYear = countryScoreByYear("URS");
+        var GBRScoreByYear = countryScoreByYear("GBR");
         
         
         
@@ -168,29 +168,29 @@ function show_medals_over_time(ndx){
             .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
             .renderHorizontalGridLines(true)
             .data(function(group){return group.top(3);})
-            .compose([
-                dc.lineChart(compositeChart)
-                    .colors("#FCCF2F")
-                    .group(countryScoreByYear(), "1st"),
-                dc.lineChart(compositeChart)
-                    .colors("#698192")
-                    .group( countryScoreByYear(), "2nd"),
-                dc.lineChart(compositeChart)
-                    .colors("#B04709")
-                    .group(countryScoreByYear(), "3rd")
-                    
-                ])
             // .compose([
             //     dc.lineChart(compositeChart)
-            //         .colors('red')
-            //         .group(USAScoreByYear, 'USA'),
+            //         .colors("#FCCF2F")
+            //         .group(countryScoreByYear(), "1st"),
             //     dc.lineChart(compositeChart)
-            //         .colors('blue')
-            //         .group(USRScoreByYear, 'USR'),
+            //         .colors("#698192")
+            //         .group( countryScoreByYear(), "2nd"),
             //     dc.lineChart(compositeChart)
-            //         .colors('black')
-            //         .group(GBRScoreByYear, 'GBR')
-            // ])
+            //         .colors("#B04709")
+            //         .group(countryScoreByYear(), "3rd")
+                    
+            //     ])
+            .compose([
+                dc.lineChart(compositeChart)
+                    .colors('red')
+                    .group(USAScoreByYear, 'USA'),
+                dc.lineChart(compositeChart)
+                    .colors('blue')
+                    .group(USRScoreByYear, 'USR'),
+                dc.lineChart(compositeChart)
+                    .colors('black')
+                    .group(GBRScoreByYear, 'GBR')
+            ])
             .brushOn(false)
             .render();
             
