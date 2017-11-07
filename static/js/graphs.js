@@ -171,13 +171,13 @@ function show_medals_over_time(ndx){
             .compose([
                 dc.lineChart(compositeChart)
                     .colors("#FCCF2F")
-                    .group(countryScoreByYear[0], "1st"),
+                    .group(countryScoreByYear(), "1st"),
                 dc.lineChart(compositeChart)
                     .colors("#698192")
-                    .group( countryScoreByYear[1], "2nd"),
+                    .group( countryScoreByYear(), "2nd"),
                 dc.lineChart(compositeChart)
                     .colors("#B04709")
-                    .group(countryScoreByYear[2], "3rd")
+                    .group(countryScoreByYear(), "3rd")
                     
                 ])
             // .compose([
