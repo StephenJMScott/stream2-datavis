@@ -1,8 +1,11 @@
 queue()
-    .defer(d3.csv, "data/winter.csv")
-    .defer(d3.csv, "data/summer.csv")
+    .defer(d3.json, "/summer")
+    .defer(d3.json, "/winter")
     .await(makeGraphs);
-    
+
+
+
+
 function makeGraphs(error, winterData, summerData){
       winterData.forEach(function(d) {
             d.Season="Winter"
@@ -42,8 +45,9 @@ function makeGraphs(error, winterData, summerData){
                 d.Score = 4;
             }; 
         });
+        
     
-    // show_discipline_selector(ndx);
+    
     show_gender_balance(ndx);
     show_top_countries(ndx);
     show_medal_ratio(ndx);
@@ -52,6 +56,8 @@ function makeGraphs(error, winterData, summerData){
     
     dc.renderAll();
 }
+
+
 
 function show_gender_balance(ndx){
     var gender_dim = ndx.dimension(dc.pluck("Gender"));
@@ -83,6 +89,7 @@ function show_top_countries(ndx){
         .dimension(country_dim)
         .group(country_count)
         .cap(5)
+        .elasticX(true)
         .othersGrouper(false)
         .xAxis().ticks(4); 
 }
@@ -143,9 +150,11 @@ function show_medals_over_time(ndx){
             });
         }
         
-        var USAScoreByYear = countryScoreByYear("USA");
-        var USRScoreByYear = countryScoreByYear("URS");
-        var GBRScoreByYear = countryScoreByYear("GBR");
+        // var USAScoreByYear = countryScoreByYear("USA");
+        // var USRScoreByYear = countryScoreByYear("URS");
+        // var GBRScoreByYear = countryScoreByYear("GBR");
+        
+        
         
         
     
@@ -158,19 +167,40 @@ function show_medals_over_time(ndx){
             .yAxisLabel("Weighted Score")
             .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
             .renderHorizontalGridLines(true)
+            .data(function(group){return group.top(3);})
             .compose([
                 dc.lineChart(compositeChart)
-                    .colors('red')
-                    .group(USAScoreByYear, 'USA'),
+                    .colors("#FCCF2F")
+                    .group(countryScoreByYear[0], "1st"),
                 dc.lineChart(compositeChart)
-                    .colors('blue')
-                    .group(USRScoreByYear, 'USR'),
+                    .colors("#698192")
+                    .group( countryScoreByYear[1], "2nd"),
                 dc.lineChart(compositeChart)
-                    .colors('black')
-                    .group(GBRScoreByYear, 'GBR')
-            ])
+                    .colors("#B04709")
+                    .group(countryScoreByYear[2], "3rd")
+                    
+                ])
+            // .compose([
+            //     dc.lineChart(compositeChart)
+            //         .colors('red')
+            //         .group(USAScoreByYear, 'USA'),
+            //     dc.lineChart(compositeChart)
+            //         .colors('blue')
+            //         .group(USRScoreByYear, 'USR'),
+            //     dc.lineChart(compositeChart)
+            //         .colors('black')
+            //         .group(GBRScoreByYear, 'GBR')
+            // ])
             .brushOn(false)
             .render();
+            
+            
+        compositeChart.xAxis().tickFormat(d3.format('d'));
+        
+            
+        
+            
+         
         
 
 
