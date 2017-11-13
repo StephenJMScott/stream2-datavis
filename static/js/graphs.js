@@ -6,7 +6,7 @@ queue()
 
 
 
-function makeGraphs(error, summerData, winterData){
+function makeGraphs(error, winterData, summerData){
       winterData.forEach(function(d) {
             d.Season="Winter"
             d.Year = +d.Year;
