@@ -6,7 +6,7 @@ queue()
 
 
 
-function makeGraphs(error, winterData, summerData){
+function makeGraphs(error, summerData, winterData){
       winterData.forEach(function(d) {
             d.Season="Winter"
             d.Year = +d.Year;
@@ -122,6 +122,9 @@ function show_medals_over_time(ndx){
         
         var dim = ndx.dimension(dc.pluck('Country'));
         var score = dim.group().reduceSum(dc.pluck('Score'));    
+        var topThree = score.top(5);
+        
+
     
         var chart = dc.rowChart("#top-score-chart");
         chart
@@ -150,15 +153,31 @@ function show_medals_over_time(ndx){
             });
         }
         
-        var USAScoreByYear = countryScoreByYear("USA");
-        var USRScoreByYear = countryScoreByYear("URS");
-        var GBRScoreByYear = countryScoreByYear("GBR");
+        function makeCountryChart(country, colour) {
+            var scoreByYear = countryScoreByYear(country);
+            return dc.lineChart(compositeChart)
+                    .colors(colour)
+                    .group(scoreByYear, country);
+        }
         
+        olympic_colours = ["red", "black", "green", "blue", "yellow"]
         
-        
-        
-    
         var compositeChart = dc.compositeChart('#top-three-by-year-chart');
+
+        lines = []
+        topThree.forEach(function(d, i){
+            console.log(i);
+            chart = makeCountryChart(d.key , olympic_colours[i]);
+            lines.push(chart)
+        })
+
+
+        // lines = [makeCountryChart("USA", "red"),
+        //          makeCountryChart("URS", "blue"),
+        //          makeCountryChart("GBR", "green"),
+        //          makeCountryChart("FIN", "yellow")]
+       
+       
         compositeChart
             .width(990)
             .height(200)
@@ -168,29 +187,7 @@ function show_medals_over_time(ndx){
             .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
             .renderHorizontalGridLines(true)
             .data(function(group){return group.top(3);})
-            // .compose([
-            //     dc.lineChart(compositeChart)
-            //         .colors("#FCCF2F")
-            //         .group(countryScoreByYear(), "1st"),
-            //     dc.lineChart(compositeChart)
-            //         .colors("#698192")
-            //         .group( countryScoreByYear(), "2nd"),
-            //     dc.lineChart(compositeChart)
-            //         .colors("#B04709")
-            //         .group(countryScoreByYear(), "3rd")
-                    
-            //     ])
-            .compose([
-                dc.lineChart(compositeChart)
-                    .colors('red')
-                    .group(USAScoreByYear, 'USA'),
-                dc.lineChart(compositeChart)
-                    .colors('blue')
-                    .group(USRScoreByYear, 'USR'),
-                dc.lineChart(compositeChart)
-                    .colors('black')
-                    .group(GBRScoreByYear, 'GBR')
-            ])
+            .compose(lines)
             .brushOn(false)
             .render();
             
