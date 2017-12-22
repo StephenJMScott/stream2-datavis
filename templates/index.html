@@ -11,12 +11,15 @@
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/introjs.min.css">
+
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-    <!--<script type="text/javascript" src="../static/topojson.min.js"></script>-->
+    <script type="text/javascript" src="../static/js/intro.min.js"></script>
+    
     
     
 </head>
@@ -27,7 +30,7 @@
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="#" onclick="return false;">Olympic Dashboard</a>
-	      <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+	      <a class="btn btn-large btn-danger margin_right" href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 	    </div>
 	    
 	    
@@ -38,29 +41,29 @@
         <div id="select-season"></div>
     </div>
 	
+	
 
     
     <div class = "container">
         <div class="row">
 	        <div class="col-xs-12 col-sm-12 text-center">
 	          <h1 class="section-heading">Olympic Medal Distribution</h1>
+	          <a class="btn btn-large btn-success margin_left" href="javascript:void(0);" onclick="javascript:introJs().start();">Start Tour</a>
 	        </div>
 	      </div>
         <div class = "row backing">
-            <div class = "col-sm-12 col-md-4" id = "gender_chart">
+            <div class = "col-sm-12 col-md-4" id = "gender_chart" data-step="1" data-intro="Let's have a look at gender balance to begin" data-position="right">
                 <!-- Male Vs Female Piechart will go here-->
                 <strong>Lets compare Male vs Female competitors since the beginning</strong>
                 <p class = "info">Men have won the vast amount of medals as although women could compete since 1900 it took until 2012 for every country to have female representives at the games!</p>
                 <strong> Gender balance</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
-                <a class="reset" href="javascript:foo();" style="display: none;">reset</a>
             </div>
-            <div class = "col-sm-12 col-md-4" id = "top_performers">
+            <div class = "col-sm-12 col-md-4" id = "top_performers" data-step="2" data-intro="Next we can look at the top performers" data-position="right">
                 <!--Top 5 countries barchart will go here-->
                 <strong>Here we see the top five performing countries since the beginning</strong>
                 <p class = "info">We can see the USA are dominant regardless of how we filter the data. While at a number two position overall and making a top 5 appearance regardless of the filtering, the Soviet Union was dissolved in 1991 and will naturally fall off the podium, but how long will it take?</p>
             </div>
-            <div class = "col-sm-12 col-md-4" id = "medal_chart">
+            <div class = "col-sm-12 col-md-4" id = "medal_chart" data-step="3" data-intro="Next we examine medal ratios" data-position="right">
                 <!--Gold/Silver/Bronze piechart will go here-->
                 <strong>A breakdown of their performance. Does one country take home more of one type of medal?</strong>
                 <p class = "info">The USA not only takes home the majority of medals but the medals which they take home are Gold almost half the time. They truly stand out as an overwhelmingly dominant country taking home the highest number of silver and bronze as well.</p>
@@ -71,9 +74,9 @@
         
         
         <div class = "row backing">
-            <div class = "col-sm-12" id = "top-three-by-year-chart">
-                 <strong> Lets examine the Top 3 performers since the beginning to see if they've always been this dominant</strong>
-                <p class = "info">Here we will use a weighting proposed by Jeff Z. Klein in a New York Times article where Gold:Silver:Bronze is 4:2:1 as it seems the fairest compromise between the total-medals and golds-first methods.</p>
+            <div class = "col-sm-12" id = "top-three-by-year-chart" data-step="4" data-intro="Finally let's examine top performance with a weighting over time" data-position="right">
+                 <strong> Lets examine the Top 5 performers overall since the beginning to see if they've always been this dominant</strong>
+                <p class = "info">Here we will use a weighting proposed by Jeff Z. Klein in a New York Times article where Gold:Silver:Bronze is 4:2:1 as it seems the fairest compromise between the total-medals and golds-first methods.Notice Italy is on this graph but not on the Row Chart above! The win less medals, but when a weighting is taken into consideration the medals they do win are worth more</p>
             </div>
         </div>
         
@@ -90,16 +93,6 @@
     </footer>
     
   
-    <script>
-        function foo(){
-         dc.pieChart("#gender_chart")
-             .filterAll();
-             dc.redrawAll();
-            
-}
-
-        
-    </script>
     
     
     

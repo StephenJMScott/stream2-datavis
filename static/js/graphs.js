@@ -6,18 +6,20 @@ queue()
 
 
 
-function makeGraphs(error, winterData, summerData){
-      winterData.forEach(function(d) {
-            d.Season="Winter"
-            d.Year = +d.Year;
-        }) 
+function makeGraphs(error, summerData, winterData){
+      
 
         summerData.forEach(function(d) {
             d.Season="Summer"
             d.Year = +d.Year;
         }) 
+        
+        winterData.forEach(function(d) {
+            d.Season="Winter"
+            d.Year = +d.Year;
+        }) 
 
-        var totalData = winterData.concat(summerData) 
+        var totalData = summerData.concat(winterData) 
     
     
     var ndx = crossfilter(totalData);
