@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Testing Page</title>
+	
+	<style>
+		.display {
+			display:inherit;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Option Selector</a>
+	      <a href= "#" rel ="01" onclick="return false;"><button>Option 1</button></a>
+	      <a href= "#" rel ="02" onclick="return false;" id="opt2"><button>Option 2</button></a>
+	    </div>
+	</nav>
+	
+	<div id = "01" class = "active">
+		
+		<h1> I should be here on loading and if Option 1 is pressed. I should not be here after Option 2 is pressed</h1>
+		
+	</div>
+	
+	<div id = "02" style = "display: none">
+		
+		<h1>I should not be seen when this page is loaded. I should be here if Option 2 is pressed and I should go away when option 1 is pressed</h1>
+		
+	</div>
+	
+</body>
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript" src="static/hide_it.js"></script>
+</html>
