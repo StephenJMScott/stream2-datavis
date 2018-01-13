@@ -16,6 +16,10 @@
 	top:0;
 }
 
+.navbar-default .btn{
+    margin-top:7px;
+}
+
 
 .section-heading, #discipline-selector {
 	display: inline-block;
@@ -29,6 +33,7 @@
 }
 
 .backing{
+    padding-top:10px;
     background: rgba(102, 106, 107, 0.8);
 }
 
