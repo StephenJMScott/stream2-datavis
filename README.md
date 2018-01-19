@@ -23,7 +23,7 @@ To clone this project take the following steps:
 * Within your terminal ensure you are in the folder you wish to contain the project
 * Create a virtualenv : `virtualenv -p python3`
 * Activate virtualenv: `source bin/activate`
-* Type the following into the command line: `$ git clone "https://github.com/StephenJMScott/stream2-datavis.git`
+* Type the following into the command line: `$ git clone "https://github.com/StephenJMScott/stream2-datavis.git"`
 * The entire project should be now contained within your desired folder. 
 * Ensure all project dependancies are installed using : `$ pip install -r requirements.txt`
 * Run the dashboard.py file.
