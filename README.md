@@ -1,5 +1,7 @@
 # Olympic Dashboard
 
+## Project Has Depreciated, Fix in Progress
+
 ## Interactive Data Visulisation Dashboard
 
 This submission is for the Code Insititutes Stream 2 Back End Project. It is a Data Visulisation project built using Python's Flask Framework based around the Kaggle DataSet found by following this link- https://www.kaggle.com/the-guardian/olympic-games/data
