@@ -55,5 +55,3 @@ This project has been deployed and hosted on Heroku.
 The DataSet is hosted on a mLab MongoDB server. 
 
 
-## Testing
-Throughout the creation of this project manual testing was undertaken to ensure the dashboard worked as intended. Care was also taken to ensure it worked on multiple browsers and to have it as mobile responsive as possible.
